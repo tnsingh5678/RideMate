@@ -43,30 +43,39 @@ function BookingCar() {
   }, [driver, totalHours]);
 
   function selectTimeSlots(values) {
-    setFrom(moment(values[0]).format("MMM DD yyyy HH:mm"));
-    setTo(moment(values[1]).format("MMM DD yyyy HH:mm"));
-
-    setTotalHours(values[1].diff(values[0], "hours"));
+    // Store the raw moment objects for further calculations
+    const start = values[0]; // Raw moment object
+    const end = values[1]; // Raw moment object
+    
+    // Set from and to using the raw moment objects
+    setFrom(start.format("MMM DD YYYY HH:mm"));
+    setTo(end.format("MMM DD YYYY HH:mm"));
+  
+    // Calculate the total hours based on the difference between start and end
+    const hours = end.diff(start, "hours"); // Get the difference in hours
+    setTotalHours(hours);
   }
+  
 
   
 
-  function onToken(token){
+  function onToken(token) {
     const reqObj = {
-        token,
-        user: JSON.parse(localStorage.getItem("user"))._id,
-        car: car._id,
-        totalHours,
-        totalAmount,
-        driverRequired: driver,
-        bookedTimeSlots: {
-          from,
-          to,
-        },
-      };
+      token,
+      user: JSON.parse(localStorage.getItem("user"))._id,
+      car: car._id,
+      totalHours,
+      totalAmount,
+      driverRequired: driver,
+      bookedTimeSlots: {
+        from: from, // Ensure this is in correct format
+        to: to, // Ensure this is in correct format
+      },
+    };
   
-      dispatch(bookCar(reqObj));
+    dispatch(bookCar(reqObj));
   }
+  
 
   return (
     <DefaultLayout>

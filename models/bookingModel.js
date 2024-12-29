@@ -3,8 +3,8 @@ import mongoose from "mongoose"
 const bookingSchema = new mongoose.Schema({
 
 
-      car : {type : mongoose.Schema.Types.ObjectID , ref:'cars'},
-      user : {type : mongoose.Schema.Types.ObjectID , ref:'users'},
+      car : {type : mongoose.Schema.Types.ObjectID , ref:'CAR'},
+      user : {type : mongoose.Schema.Types.ObjectID , ref:'CARUSER'},
       bookedTimeSlots : {
           from : {type : String} ,
           to : {type : String}
@@ -20,5 +20,5 @@ const bookingSchema = new mongoose.Schema({
 )
 
 const BOOKING = mongoose.model('BOOKING' , bookingSchema)
-export default BOOKING
+export default BOOKING;
 
