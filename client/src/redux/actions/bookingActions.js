@@ -4,7 +4,7 @@ export const bookCar = (reqObj) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
 
   try {
-     await axios.post("http://localhost:5000/api/bookings/bookcar" , reqObj,{
+     await axios.post("https://ridemate-ydhu.onrender.com/api/bookings/bookcar" , reqObj,{
       withCredentials: true
     });
 
@@ -27,7 +27,7 @@ export const getAllBookings=()=>async dispatch=>{
   dispatch({type: 'LOADING' , payload:true})
 
   try {
-      const response = await axios.get('http://localhost:5000/api/bookings/getallbookings',{
+      const response = await axios.get('https://ridemate-ydhu.onrender.com/api/bookings/getallbookings',{
         withCredentials: true
       })
       dispatch({type: 'GET_ALL_BOOKINGS', payload:response.data})

@@ -6,7 +6,7 @@ export const userLogin=(reqObj)=>async dispatch=>{
     dispatch({type: 'LOADING' , payload:true})
 
     try {
-        const response = await axios.post('http://localhost:5000/api/users/login' , reqObj,{
+        const response = await axios.post('https://ridemate-ydhu.onrender.com/api/users/login' , reqObj,{
             withCredentials: true
           })
         localStorage.setItem('user' , JSON.stringify(response.data))
@@ -28,7 +28,7 @@ export const userRegister=(reqObj)=>async dispatch=>{
     dispatch({type: 'LOADING' , payload:true})
 
     try {
-        const response = await axios.post('http://localhost:5000/api/users/register' , reqObj,{
+        const response = await axios.post('https://ridemate-ydhu.onrender.com/api/users/register' , reqObj,{
             withCredentials: true
           })
         message.success('Registration successfull')

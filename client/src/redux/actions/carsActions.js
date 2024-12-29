@@ -21,7 +21,7 @@ export const addCar=(reqObj)=>async dispatch=>{
     dispatch({type: 'LOADING' , payload:true})
 
     try {
-         await axios.post('http://localhost:5000/api/cars/addcar' , reqObj,{
+         await axios.post('https://ridemate-ydhu.onrender.com/api/cars/addcar' , reqObj,{
             withCredentials: true
           })
        
@@ -43,7 +43,7 @@ export const editCar=(reqObj)=>async dispatch=>{
     dispatch({type: 'LOADING' , payload:true})
 
     try {
-         await axios.post('http://localhost:5000/api/cars/editcar' , reqObj,{
+         await axios.post('https://ridemate-ydhu.onrender.com/api/cars/editcar' , reqObj,{
             withCredentials: true
           })
        
@@ -65,7 +65,7 @@ export const deleteCar=(reqObj)=>async dispatch=>{
     dispatch({type: 'LOADING' , payload:true})
 
     try {
-         await axios.post('http://localhost:5000/api/cars/deletecar' , reqObj,{
+         await axios.post('https://ridemate-ydhu.onrender.com/api/cars/deletecar' , reqObj,{
             withCredentials: true
           })
        
